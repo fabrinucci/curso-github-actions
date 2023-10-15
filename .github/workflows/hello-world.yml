@@ -1,0 +1,13 @@
+name: hello-world
+run-name: Learning gitbub actions
+on: [push]
+jobs:	
+  hello-world: 
+    runs-on: ubuntu-latest  
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Define variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Run script
+        run: javascript hello-world.js
