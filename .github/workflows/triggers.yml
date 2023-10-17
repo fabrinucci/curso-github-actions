@@ -1,0 +1,19 @@
+name: Creating of 3 triggers
+run-name: I am creating 3 triggers to practice with
+on:
+  push:
+    branches: 
+      - 'main'
+    paths:
+      - '**/.js'
+  pull_request:
+    types: [opened, labeled]
+    branches: 
+      - 'main'
+    paths:
+      - '**/.js'
+  issues:
+    types: [opened, edited, closed]
+
+  issue_comment:
+    types:  [created, deleted]
