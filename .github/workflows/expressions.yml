@@ -1,0 +1,27 @@
+name: Expressions
+run-name: First Time with expressions
+on:
+  workflow_dispatch:
+    inputs:
+      age:
+        description: 'Age'
+        required: true
+        type: number
+      name:
+        description: 'Name'
+        required: true
+        default: 'John'
+        type: string
+jobs:
+  major:
+    if: ${{ inputs.age >= 18 }} 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: echo ${{ inputs.name }} is of legal age
+  minor:
+    if: ${{ inputs.age < 18 }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run script
+        run: echo ${{ inputs.name }} is not of legal age
